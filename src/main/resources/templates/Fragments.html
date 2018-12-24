@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+    <div th:fragment="page-header">
+        <h1>Primavera</h1>
+        <h2 th:text="${title}">Title</h2>
+    </div>
+    <div th:fragment="navigation">
+        <a href="/">Home</a>
+        <a href="/rot13">Rot13</a>
+        <a href="/caesar">Caesar</a>
+        <a href="/vigenere">Vigenere</a>
+    </div>
+</body>
