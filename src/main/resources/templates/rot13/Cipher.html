@@ -4,9 +4,11 @@
     <body class="container">
         <div th:replace="fragments :: page-header"></div>
         <div id="plaintext-container">
+            <p th:text="${plainLabel}"></p>
             <p th:text="${plaintext}"></p>
         </div>
         <div id="ciphertext-container">
+            <p th:text="${cipherLabel}"></p>
             <p th:text="${ciphertext}"></p>
         </div>
     </body>

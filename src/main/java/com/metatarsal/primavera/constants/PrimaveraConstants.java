@@ -29,11 +29,13 @@ public class PrimaveraConstants {
     public static final String INSTRUCTION = "instruction";
     public static final String PLAINTEXT = "plaintext";
     public static final String CIPHERTEXT = "ciphertext";
+    public static final String PLAINTEXT_LABEL = "plainLabel";
+    public static final String CIPHERTEXT_LABEL =  "cipherLabel";
     //endregion
 
     //region Instructions & Labels (Display)
     public static final String ENTER_PLAINTEXT = "Please enter the plaintext below.";
-    public static final String PLAINTEXT_LABEL = "Plaintext:";
-    public static final String CIPHERTEXT_LABEL = "Ciphertext:";
+    public static final String PLAINTEXT_DISPLAY = "Plaintext:";
+    public static final String CIPHERTEXT_DISPLAY = "Ciphertext:";
     //endregion
 }
