@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CaesarController {
 
     @RequestMapping(value ="")
-    @ResponseBody
     public String index() {
-        return "Caesar Page";
+        return "caesar/index";
     }
 }
