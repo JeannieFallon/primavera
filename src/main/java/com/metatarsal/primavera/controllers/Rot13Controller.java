@@ -13,33 +13,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("rot13")
 public class Rot13Controller {
 
     @RequestMapping(value = "")
-    public String index(Model model) {
+    public String index(HttpSession session, Model model) {
+        //TODO proper dependency injection
         PrimaveraServiceImpl primaService = new PrimaveraServiceImpl();
+
+        // clear & update viewmodel
+        session.setAttribute(PrimaveraConstants.PRIMA_VM, null);
         PrimaveraViewModel primaVM = primaService.getPrimaVM(Context.ROT13);
+        session.setAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
         model.addAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
+
         return "rot13/index";
     }
 
     @RequestMapping(value = "cipher", method = RequestMethod.POST)
-    public String getRot13Cipher(Model model, HttpServletRequest request) {
+    public String getRot13Cipher(HttpSession session, Model model, HttpServletRequest request) {
         //TODO proper dependency injection
-        PrimaveraServiceImpl primaService = new PrimaveraServiceImpl();
         CipherServiceImpl cipherService = new CipherServiceImpl();
+        PrimaveraServiceImpl primaService = new PrimaveraServiceImpl();
 
-        PrimaveraViewModel primaVM = primaService.getPrimaVM(Context.ROT13);
         TextDTO text = new TextDTO(request.getParameter(PrimaveraConstants.PLAINTEXT), CipherConstants.ROT13_SHIFT_VAL);
         text = cipherService.getRot13Cipher(text);
-        primaVM.setText(text);
 
+        PrimaveraViewModel primaVM = (PrimaveraViewModel) session.getAttribute(PrimaveraConstants.PRIMA_VM);
+        if (primaVM == null) { primaVM = primaService.getPrimaVM(Context.ROT13); } //TODO how to do null coalescing in java?
+        primaVM.setText(text);
         model.addAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
 
         return "rot13/cipher";
     }
-
 }

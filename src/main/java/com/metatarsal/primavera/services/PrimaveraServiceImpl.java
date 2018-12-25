@@ -8,7 +8,6 @@ public class PrimaveraServiceImpl implements PrimaveraService{
 
     @Override
     public PrimaveraViewModel getPrimaVM(Context context) {
-        //TODO session management
         PrimaveraViewModel primaVM = new PrimaveraViewModel();
 
         // shared fields
