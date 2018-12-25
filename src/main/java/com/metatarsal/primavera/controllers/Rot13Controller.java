@@ -7,6 +7,7 @@ import com.metatarsal.primavera.models.PrimaveraViewModel;
 import com.metatarsal.primavera.models.TextDTO;
 import com.metatarsal.primavera.services.CipherServiceImpl;
 import com.metatarsal.primavera.services.PrimaveraServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,14 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("rot13")
 public class Rot13Controller {
 
+    @Autowired
+    private PrimaveraServiceImpl primaService;
+
+    @Autowired
+    private CipherServiceImpl cipherService;
+
     @RequestMapping(value = "")
     public String index(HttpSession session, Model model) {
-        //TODO proper dependency injection
-        PrimaveraServiceImpl primaService = new PrimaveraServiceImpl();
-
         // clear & update viewmodel
         session.setAttribute(PrimaveraConstants.PRIMA_VM, null);
         PrimaveraViewModel primaVM = primaService.getPrimaVM(Context.ROT13);
@@ -35,13 +39,10 @@ public class Rot13Controller {
 
     @RequestMapping(value = "cipher", method = RequestMethod.POST)
     public String getRot13Cipher(HttpSession session, Model model, HttpServletRequest request) {
-        //TODO proper dependency injection
-        CipherServiceImpl cipherService = new CipherServiceImpl();
-        PrimaveraServiceImpl primaService = new PrimaveraServiceImpl();
-
+        // get ciphertext from input plaintext
         TextDTO text = new TextDTO(request.getParameter(PrimaveraConstants.PLAINTEXT), CipherConstants.ROT13_SHIFT_VAL);
         text = cipherService.getRot13Cipher(text);
-
+        // update viewmodel
         PrimaveraViewModel primaVM = (PrimaveraViewModel) session.getAttribute(PrimaveraConstants.PRIMA_VM);
         if (primaVM == null) { primaVM = primaService.getPrimaVM(Context.ROT13); } //TODO how to do null coalescing in java?
         primaVM.setText(text);

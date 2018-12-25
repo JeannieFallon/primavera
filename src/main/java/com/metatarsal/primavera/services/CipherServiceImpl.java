@@ -2,7 +2,9 @@ package com.metatarsal.primavera.services;
 
 import com.metatarsal.primavera.constants.CipherConstants;
 import com.metatarsal.primavera.models.TextDTO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CipherServiceImpl implements CipherService {
 
     public CipherServiceImpl() {
