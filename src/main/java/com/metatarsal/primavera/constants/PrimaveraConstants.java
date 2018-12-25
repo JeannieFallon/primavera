@@ -3,8 +3,8 @@ package com.metatarsal.primavera.constants;
 public class PrimaveraConstants {
 
     /*
-    * standard values for page names & flows
-    * throughout Primavera app
+    * standard values for viewmodel fields
+    * and request params throughout Primavera app
     * */
 
     private PrimaveraConstants() {

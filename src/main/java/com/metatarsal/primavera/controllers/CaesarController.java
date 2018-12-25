@@ -40,6 +40,7 @@ public class CaesarController {
     public String getRot13Cipher(HttpSession session, Model model, HttpServletRequest request) {
         // pull plaintext and shiftval from request
         String plaintext = request.getParameter(PrimaveraConstants.PLAINTEXT);
+        //TODO validation
         int shiftval = Integer.parseInt(request.getParameter(PrimaveraConstants.SHIFTVAL));
 
         // get ciphertext

@@ -5,8 +5,11 @@ import com.metatarsal.primavera.enums.Context;
 import com.metatarsal.primavera.models.PrimaveraViewModel;
 import org.springframework.stereotype.Service;
 
+/*
+ * Service interface for Primavera viewmodel methods
+ * */
 @Service
-public class PrimaveraServiceImpl implements PrimaveraService{
+public class PrimaveraServiceImpl implements PrimaveraService {
 
     @Override
     public PrimaveraViewModel getPrimaVM(Context context) {
@@ -30,6 +33,8 @@ public class PrimaveraServiceImpl implements PrimaveraService{
                 break;
             case VIGENERE:
                 primaVM = getVigenereFields(primaVM);
+                break;
+            default:
                 break;
         }
 

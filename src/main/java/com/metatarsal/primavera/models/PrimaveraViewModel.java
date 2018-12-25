@@ -36,9 +36,13 @@ public class PrimaveraViewModel {
         this.instruction = instruction;
     }
 
-    public String getInstructionShift() { return instructionShift; }
+    public String getInstructionShift() {
+        return instructionShift;
+    }
 
-    public void setInstructionShift(String instructionShift) { this.instructionShift = instructionShift; }
+    public void setInstructionShift(String instructionShift) {
+        this.instructionShift = instructionShift;
+    }
 
     public String getPlainLabel() {
         return plainLabel;

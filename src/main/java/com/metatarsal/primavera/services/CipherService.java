@@ -4,7 +4,7 @@ import com.metatarsal.primavera.models.TextDTO;
 import org.springframework.stereotype.Service;
 
 /*
-* Service interface for cipher functions
+* Service interface for cipher methods
 * */
 @Service
 public interface CipherService {
