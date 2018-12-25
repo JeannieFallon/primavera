@@ -1,6 +1,8 @@
 package com.metatarsal.primavera.controllers;
 
+import com.metatarsal.primavera.constants.CipherConstants;
 import com.metatarsal.primavera.constants.PrimaveraConstants;
+import com.metatarsal.primavera.models.TextDTO;
 import com.metatarsal.primavera.services.CipherServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,15 +28,16 @@ public class Rot13Controller {
         //TODO proper dependency injection
         CipherServiceImpl cipherService = new CipherServiceImpl();
 
-        String plaintext = request.getParameter(PrimaveraConstants.PLAINTEXT);
-        String ciphertext = cipherService.getRot13Cipher(plaintext);
+        TextDTO text = new TextDTO(request.getParameter(PrimaveraConstants.PLAINTEXT), CipherConstants.ROT13_SHIFT_VAL);
+        text = cipherService.getRot13Cipher(text);
 
-        //TODO add Text object as model
+        model.addAttribute(PrimaveraConstants.TEXT, text);
+
+        //TODO proper viewmodel
         model.addAttribute(PrimaveraConstants.PLAINTEXT_LABEL, PrimaveraConstants.PLAINTEXT_DISPLAY);
         model.addAttribute(PrimaveraConstants.CIPHERTEXT_LABEL, PrimaveraConstants.CIPHERTEXT_DISPLAY);
-        model.addAttribute(PrimaveraConstants.PLAINTEXT, plaintext);
-        model.addAttribute(PrimaveraConstants.CIPHERTEXT, ciphertext);
         model.addAttribute(PrimaveraConstants.TITLE, PrimaveraConstants.ROT13_TITLE);
         return "rot13/cipher";
     }
+
 }

@@ -2,8 +2,8 @@ package com.metatarsal.primavera.models;
 
 public class TextDTO {
 
-    private String plainText;
-    private String cipherText;
+    private String plaintext;
+    private String ciphertext;
     private int TextLength;
     private int shiftVal;
 
@@ -12,25 +12,25 @@ public class TextDTO {
     }
 
     public TextDTO(String plainText, int shiftVal) {
-        this.plainText = plainText;
+        this.plaintext = plainText;
         this.TextLength = plainText.length();
         this.shiftVal = shiftVal;
     }
 
-    public String getPlainText() {
-        return plainText;
+    public String getPlaintext() {
+        return plaintext;
     }
 
-    public void setPlainText(String plainText) {
-        this.plainText = plainText;
+    public void setPlaintext(String plaintext) {
+        this.plaintext = plaintext;
     }
 
-    public String getCipherText() {
-        return cipherText;
+    public String getCiphertext() {
+        return ciphertext;
     }
 
-    public void setCipherText(String cipherText) {
-        this.cipherText = cipherText;
+    public void setCiphertext(String ciphertext) {
+        this.ciphertext = ciphertext;
     }
 
     public int getTextLength() {

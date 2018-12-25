@@ -1,6 +1,7 @@
 package com.metatarsal.primavera.services;
 
 import com.metatarsal.primavera.constants.CipherConstants;
+import com.metatarsal.primavera.models.TextDTO;
 
 public class CipherServiceImpl implements CipherService {
 
@@ -9,15 +10,13 @@ public class CipherServiceImpl implements CipherService {
     }
 
     @Override
-    public String getRot13Cipher(String plaintext) {
-
+    public TextDTO getRot13Cipher(TextDTO text) {
         StringBuffer sb = new StringBuffer();
-
-        for (char currChar : plaintext.toCharArray()) {
+        for (char currChar : text.getPlaintext().toCharArray()) {
             sb.append(shiftChar(currChar, CipherConstants.ROT13_SHIFT_VAL));
         }
-
-        return sb.toString();
+        text.setCiphertext(sb.toString());
+        return text;
     }
 
     @Override

@@ -24,7 +24,10 @@ public class PrimaveraConstants {
     public static final String VIGENERE = "Vigenere";
     //endregion
 
-    //region Params & Attributes
+    //region model bindings
+    public static final String TEXT = "text";
+
+    //TODO get a proper viewmodel
     public static final String TITLE = "title";
     public static final String INSTRUCTION = "instruction";
     public static final String PLAINTEXT = "plaintext";
