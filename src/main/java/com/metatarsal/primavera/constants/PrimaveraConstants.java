@@ -24,21 +24,15 @@ public class PrimaveraConstants {
     public static final String VIGENERE = "Vigenere";
     //endregion
 
-    //region model bindings
+    //region model bindings & request params
     public static final String TEXT = "text";
-
-    //TODO get a proper viewmodel
-    public static final String TITLE = "title";
-    public static final String INSTRUCTION = "instruction";
+    public static final String PRIMA_VM = "primaVM";
     public static final String PLAINTEXT = "plaintext";
-    public static final String CIPHERTEXT = "ciphertext";
-    public static final String PLAINTEXT_LABEL = "plainLabel";
-    public static final String CIPHERTEXT_LABEL =  "cipherLabel";
     //endregion
 
-    //region Instructions & Labels (Display)
+    //region instructions & labels
     public static final String ENTER_PLAINTEXT = "Please enter the plaintext below.";
-    public static final String PLAINTEXT_DISPLAY = "Plaintext:";
-    public static final String CIPHERTEXT_DISPLAY = "Ciphertext:";
+    public static final String PLAIN_LABEL = "Plaintext:";
+    public static final String CIPHER_Label = " ciphertext:";
     //endregion
 }
