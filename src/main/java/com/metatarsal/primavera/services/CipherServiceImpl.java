@@ -22,6 +22,16 @@ public class CipherServiceImpl implements CipherService {
     }
 
     @Override
+    public TextDTO getCaesarCipher(TextDTO text) {
+        StringBuffer sb = new StringBuffer();
+        for (char currChar : text.getPlaintext().toCharArray()) {
+            sb.append(shiftChar(currChar, text.getShiftVal()));
+        }
+        text.setCiphertext(sb.toString());
+        return text;
+    }
+
+    @Override
     public char shiftChar(char charToShift, int shiftVal) {
         int asciiVal = (int)charToShift;
 

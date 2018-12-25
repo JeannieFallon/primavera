@@ -25,10 +25,12 @@ public class PrimaveraConstants {
     public static final String PLAIN_LABEL = "Plaintext:";
     public static final String CIPHER_LABEL = " ciphertext:";
     public static final String ENTER_PLAINTEXT = "Please enter the plaintext below.";
+    public static final String ENTER_SHIFTVAL = "Please enter the shift value below.";
     //endregion
 
     //region model bindings & request params
     public static final String PRIMA_VM = "primaVM";
     public static final String PLAINTEXT = "plaintext";
+    public static final String SHIFTVAL = "shiftval";
     //endregion
 }

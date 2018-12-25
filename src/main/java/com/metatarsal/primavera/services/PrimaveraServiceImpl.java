@@ -14,6 +14,7 @@ public class PrimaveraServiceImpl implements PrimaveraService{
 
         // shared fields
         primaVM.setInstruction(PrimaveraConstants.ENTER_PLAINTEXT);
+        primaVM.setInstructionShift(PrimaveraConstants.ENTER_SHIFTVAL);
         primaVM.setPlainLabel(PrimaveraConstants.PLAIN_LABEL);
 
         // context specific fields
@@ -49,6 +50,8 @@ public class PrimaveraServiceImpl implements PrimaveraService{
 
     @Override
     public PrimaveraViewModel getCaesarFields(PrimaveraViewModel primaVM) {
+        primaVM.setTitle(PrimaveraConstants.CAESAR_TITLE);
+        primaVM.setCipherLabel(PrimaveraConstants.CAESAR + PrimaveraConstants.CIPHER_LABEL);
         return primaVM;
     }
 
