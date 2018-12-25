@@ -5,9 +5,6 @@ import com.metatarsal.primavera.enums.Context;
 import com.metatarsal.primavera.models.PrimaveraViewModel;
 import org.springframework.stereotype.Service;
 
-/*
- * Service interface for Primavera viewmodel methods
- * */
 @Service
 public class PrimaveraServiceImpl implements PrimaveraService {
 
