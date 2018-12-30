@@ -3,5 +3,8 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
     <div th:replace="fragments :: page-header"></div>
+    <div id="instruction-container" class="text-center">
+        <p th:text="${primaVM.instruction}"></p>
+    </div>
 </body>
 </html>

@@ -40,6 +40,8 @@ public class PrimaveraServiceImpl implements PrimaveraService {
 
     @Override
     public PrimaveraViewModel getHomeFields(PrimaveraViewModel primaVM) {
+        primaVM.setTitle(PrimaveraConstants.HOME_TITLE);
+        primaVM.setInstruction(PrimaveraConstants.CHOOSE_CIPHER);
         return primaVM;
     }
 
