@@ -4,7 +4,7 @@
 <body class="container">
     <div th:replace="fragments :: page-header"></div>
     <div id="plaintext-container">
-        <form method="post" action="/rot13/cipher">
+        <form method="post" action="/caesar/cipher">
             <p th:text="${primaVM.instruction}"></p>
             <input type="text" name="plaintext" />
             <br /><br />
