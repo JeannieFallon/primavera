@@ -12,17 +12,7 @@ public class CipherServiceImpl implements CipherService {
     }
 
     @Override
-    public TextDTO getRot13Cipher(TextDTO text) {
-        StringBuffer sb = new StringBuffer();
-        for (char currChar : text.getPlaintext().toCharArray()) {
-            sb.append(shiftChar(currChar, CipherConstants.ROT13_SHIFT_VAL));
-        }
-        text.setCiphertext(sb.toString());
-        return text;
-    }
-
-    @Override
-    public TextDTO getCaesarCipher(TextDTO text) {
+    public TextDTO getSingleShiftCipher(TextDTO text) {
         StringBuffer sb = new StringBuffer();
         for (char currChar : text.getPlaintext().toCharArray()) {
             sb.append(shiftChar(currChar, text.getShiftVal()));

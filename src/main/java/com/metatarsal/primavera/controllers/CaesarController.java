@@ -45,7 +45,7 @@ public class CaesarController {
 
         // get ciphertext
         TextDTO text = new TextDTO(plaintext, shiftval);
-        text = cipherService.getCaesarCipher(text);
+        text = cipherService.getSingleShiftCipher(text);
 
         // update viewmodel
         PrimaveraViewModel primaVM = (PrimaveraViewModel) session.getAttribute(PrimaveraConstants.PRIMA_VM);

@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CipherService {
 
-    TextDTO getRot13Cipher(TextDTO text);
-    TextDTO getCaesarCipher(TextDTO text);
+    TextDTO getSingleShiftCipher(TextDTO text);
     char shiftChar(char charToShift, int shiftVal);
     int getCipherAscii(int asciiDiffVal, int asciiVal, int shiftVal);
     int getRotation(int alphaIdx, int shiftVal);
