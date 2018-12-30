@@ -3,5 +3,16 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
     <div th:replace="fragments :: page-header"></div>
+    <div id="plaintext-container">
+        <form method="post" action="/vigenere/cipher">
+            <p th:text="${primaVM.instruction}"></p>
+            <input type="text" name="plaintext" />
+            <br /><br /> <!--TODO fix this css -->
+            <p th:text="${primaVM.instructionKey}"></p>
+            <input type="text" name="key" />
+            <br /><br />
+            <input type="submit" value="Get Vigenere Cipher" />
+        </form>
+    </div>
 </body>
 </html>

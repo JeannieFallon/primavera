@@ -6,6 +6,7 @@ public class PrimaveraViewModel {
     private String title;
     private String instruction;
     private String instructionShift; //TODO fix instruction design
+    private String instructionKey;
     private String plainLabel;
     private String cipherLabel;
 
@@ -42,6 +43,14 @@ public class PrimaveraViewModel {
 
     public void setInstructionShift(String instructionShift) {
         this.instructionShift = instructionShift;
+    }
+
+    public String getInstructionKey() {
+        return instructionKey;
+    }
+
+    public void setInstructionKey(String instructionKey) {
+        this.instructionKey = instructionKey;
     }
 
     public String getPlainLabel() {

@@ -27,6 +27,7 @@ public class PrimaveraConstants {
     public static final String CHOOSE_CIPHER = "Choose one of the ciphers listed above.";
     public static final String ENTER_PLAINTEXT = "Please enter the plaintext below.";
     public static final String ENTER_SHIFTVAL = "Please enter the shift value below.";
+    public static final String ENTER_KEY = "Please enter the key below.";
     //endregion
 
     //region model bindings & request params
