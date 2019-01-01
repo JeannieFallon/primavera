@@ -45,6 +45,6 @@ public class VigenereController {
         primaVM.setText(text);
         model.addAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
 
-        return "vigenere/cipher";
+        return "shared/cipher";
     }
 }

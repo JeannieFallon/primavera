@@ -48,6 +48,6 @@ public class Rot13Controller {
         primaVM.setText(text);
         model.addAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
 
-        return "rot13/cipher";
+        return "shared/cipher";
     }
 }

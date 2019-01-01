@@ -53,7 +53,6 @@ public class CaesarController {
         primaVM.setText(text);
         model.addAttribute(PrimaveraConstants.PRIMA_VM, primaVM);
 
-        //TODO refactor views to use shared cipher view
-        return "caesar/cipher";
+        return "shared/cipher";
     }
 }
