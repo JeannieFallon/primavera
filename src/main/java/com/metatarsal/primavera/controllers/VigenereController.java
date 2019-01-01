@@ -4,6 +4,7 @@ import com.metatarsal.primavera.constants.PrimaveraConstants;
 import com.metatarsal.primavera.enums.Context;
 import com.metatarsal.primavera.models.PrimaveraViewModel;
 import com.metatarsal.primavera.models.TextDTO;
+import com.metatarsal.primavera.services.CipherServiceImpl;
 import com.metatarsal.primavera.services.PrimaveraServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class VigenereController {
     @Autowired
     PrimaveraServiceImpl primaService;
 
+    @Autowired
+    CipherServiceImpl cipherService;
+
     @RequestMapping(value = "")
     public String index(HttpSession session, Model model) {
         // clear & update viewmodel
@@ -34,10 +38,13 @@ public class VigenereController {
 
     @RequestMapping(value = "cipher", method = RequestMethod.POST)
     public String getVigenereCipher(HttpSession session, Model model, HttpServletRequest request) {
+        // pull plaintext and key from request
+        String plaintext = request.getParameter(PrimaveraConstants.PLAINTEXT);
+        String key = request.getParameter(PrimaveraConstants.KEY);
 
-        //TODO implement vigenere cipher
-        TextDTO text = new TextDTO("plain test", 0);
-        text.setCiphertext("cipher test");
+        // get ciphertext
+        TextDTO text = new TextDTO(plaintext, key);
+        text = cipherService.getMultiShiftCipher(text);
 
         //update viewmodel
         PrimaveraViewModel primaVM = (PrimaveraViewModel) session.getAttribute(PrimaveraConstants.PRIMA_VM);

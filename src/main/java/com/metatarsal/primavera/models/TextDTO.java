@@ -4,7 +4,9 @@ public class TextDTO {
 
     private String plaintext;
     private String ciphertext;
-    private int TextLength;
+    private String key;
+    private int textLength;
+    private int keyLength;
     private int shiftVal;
 
     public TextDTO() {
@@ -13,8 +15,15 @@ public class TextDTO {
 
     public TextDTO(String plainText, int shiftVal) {
         this.plaintext = plainText;
-        this.TextLength = plainText.length();
+        this.textLength = plainText.length();
         this.shiftVal = shiftVal;
+    }
+
+    public TextDTO(String plaintext, String key) {
+        this.plaintext = plaintext;
+        this.key = key;
+        this.textLength = plaintext.length();
+        this.keyLength = key.length();
     }
 
     public String getPlaintext() {
@@ -33,8 +42,20 @@ public class TextDTO {
         this.ciphertext = ciphertext;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public int getTextLength() {
-        return TextLength;
+        return textLength;
+    }
+
+    public int getKeyLength() {
+        return keyLength;
     }
 
     public int getShiftVal() {

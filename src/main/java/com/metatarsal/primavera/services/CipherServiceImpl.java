@@ -22,6 +22,32 @@ public class CipherServiceImpl implements CipherService {
     }
 
     @Override
+    public TextDTO getMultiShiftCipher(TextDTO text) {
+        StringBuffer sb = new StringBuffer();
+
+        // get shift value of each letter in key according to its index in alphabet
+        int textLen = text.getTextLength();
+        int keyLen = text.getKeyLength();
+        int[] shiftVals = new int[keyLen];
+        shiftVals = getShiftValsFromKey(text.getKey(), shiftVals);
+
+        for (int i = 0; i <= textLen; i++) {
+            for (int j = 0; j < keyLen; j++) {
+                if (i < textLen ) {
+                    char currChar = text.getPlaintext().toCharArray()[i];
+                    sb.append(shiftChar(currChar, shiftVals[j]));
+                    i++;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        text.setCiphertext(sb.toString());
+        return text;
+    }
+
+    @Override
     public char shiftChar(char charToShift, int shiftVal) {
         int asciiVal = (int)charToShift;
 
@@ -48,5 +74,28 @@ public class CipherServiceImpl implements CipherService {
     @Override
     public int getRotation(int alphaIdx, int shiftVal) {
         return (alphaIdx + shiftVal) % CipherConstants.ENG_ALPHA_LEN;
+    }
+
+    @Override
+    public int[] getShiftValsFromKey(String key, int[] shiftVals) {
+        for (int i = 0; i < shiftVals.length; i++) {
+            shiftVals[i] = getShiftValFromChar(key.toCharArray()[i]);
+        }
+        return shiftVals;
+    }
+
+    @Override
+    public int getShiftValFromChar(char currChar) {
+        int asciiVal = (int)currChar;
+        int shiftVal = 0;
+
+        //TODO refactor to work with shiftChar() & getCipherAscii() and fix ascii shift
+        if (asciiVal >= CipherConstants.ENG_LOWER_FLOOR && asciiVal <= CipherConstants.ENG_LOWER_CEILING) {
+            shiftVal = asciiVal - CipherConstants.ENG_LOWER_FLOOR + 1;
+        } else if (asciiVal >= CipherConstants.ENG_UPPER_FLOOR && asciiVal <= CipherConstants.ENG_UPPER_CEILING) {
+            shiftVal = asciiVal - CipherConstants.ENG_UPPER_FLOOR + 1;
+        }
+
+        return shiftVal;
     }
 }

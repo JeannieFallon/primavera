@@ -34,5 +34,6 @@ public class PrimaveraConstants {
     public static final String PRIMA_VM = "primaVM";
     public static final String PLAINTEXT = "plaintext";
     public static final String SHIFTVAL = "shiftval";
+    public static final String KEY = "key";
     //endregion
 }
