@@ -24,6 +24,9 @@ public class PrimaveraConstants {
     public static final String VIGENERE_TITLE = "Vigenere Cipher";
     public static final String PLAIN_LABEL = "Plaintext:";
     public static final String CIPHER_LABEL = " ciphertext:";
+    //endregion
+
+    //region instructions
     public static final String CHOOSE_CIPHER = "Choose one of the ciphers listed above.";
     public static final String ENTER_PLAINTEXT = "Please enter the plaintext below.";
     public static final String ENTER_SHIFTVAL = "Please enter the shift value below.";

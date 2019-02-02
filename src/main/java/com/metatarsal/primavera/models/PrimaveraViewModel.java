@@ -1,12 +1,14 @@
 package com.metatarsal.primavera.models;
 
+import com.metatarsal.primavera.enums.InstructionKeys;
+
+import java.util.HashMap;
+
 public class PrimaveraViewModel {
 
     private TextDTO text;
+    private HashMap<InstructionKeys, String> instructions;
     private String title;
-    private String instruction;
-    private String instructionShift; //TODO fix instruction design
-    private String instructionKey;
     private String plainLabel;
     private String cipherLabel;
 
@@ -15,6 +17,14 @@ public class PrimaveraViewModel {
 
     public TextDTO getText() {
         return text;
+    }
+
+    public HashMap<InstructionKeys, String> getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(HashMap<InstructionKeys, String> instructions) {
+        this.instructions = instructions;
     }
 
     public void setText(TextDTO text) {
@@ -27,30 +37,6 @@ public class PrimaveraViewModel {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getInstruction() {
-        return instruction;
-    }
-
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
-    }
-
-    public String getInstructionShift() {
-        return instructionShift;
-    }
-
-    public void setInstructionShift(String instructionShift) {
-        this.instructionShift = instructionShift;
-    }
-
-    public String getInstructionKey() {
-        return instructionKey;
-    }
-
-    public void setInstructionKey(String instructionKey) {
-        this.instructionKey = instructionKey;
     }
 
     public String getPlainLabel() {
