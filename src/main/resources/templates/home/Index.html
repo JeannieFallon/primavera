@@ -4,7 +4,7 @@
 <body class="container">
     <div th:replace="fragments :: page-header"></div>
     <div id="instruction-container" class="text-center">
-        <p th:text="${primaVM.instruction}"></p>
+        <p th:text="${primaVM.instructions.get(T(com.metatarsal.primavera.enums.InstructionKeys).CHOOSE_CIPHER)}"></p>
     </div>
 </body>
 </html>
