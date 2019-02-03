@@ -13,6 +13,7 @@ public class PrimaveraViewModel {
     private String cipherLabel;
 
     public PrimaveraViewModel() {
+        this.instructions = new HashMap<>();
     }
 
     public TextDTO getText() {

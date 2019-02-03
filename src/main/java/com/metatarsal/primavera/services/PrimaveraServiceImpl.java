@@ -42,7 +42,7 @@ public class PrimaveraServiceImpl implements PrimaveraService {
 
     @Override
     public PrimaveraViewModel loadInstructions(PrimaveraViewModel primaVM) {
-        HashMap<InstructionKeys, String> instructions = new HashMap<>();
+        HashMap<InstructionKeys, String> instructions = primaVM.getInstructions();
         instructions.put(InstructionKeys.CHOOSE_CIPHER, PrimaveraConstants.CHOOSE_CIPHER);
         instructions.put(InstructionKeys.ENTER_PLAINTEXT, PrimaveraConstants.ENTER_PLAINTEXT);
         instructions.put(InstructionKeys.ENTER_SHIFTVAL, PrimaveraConstants.ENTER_SHIFTVAL);
