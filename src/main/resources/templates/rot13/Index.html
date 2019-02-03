@@ -5,7 +5,7 @@
     <div th:replace="fragments :: page-header"></div>
     <div id="plaintext-container">
         <form method="post" action="/rot13/cipher">
-            <p th:text="${primaVM.instruction}"></p>
+            <p th:text="${primaVM.instructions.get(T(com.metatarsal.primavera.enums.InstructionKeys).ENTER_PLAINTEXT)}"></p>
             <input type="text" name="plaintext" />
             <br /><br /> <!--TODO fix this css -->
             <input type="submit" value="Get ROT13 Cipher" />

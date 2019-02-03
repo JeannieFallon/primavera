@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PrimaveraService {
     PrimaveraViewModel getPrimaVM(Context context);
+    PrimaveraViewModel loadInstructions(PrimaveraViewModel primaVM);
     PrimaveraViewModel getHomeFields(PrimaveraViewModel primaVM);
     PrimaveraViewModel getRot13Fields(PrimaveraViewModel primaVM);
     PrimaveraViewModel getCaesarFields(PrimaveraViewModel primaVM);
